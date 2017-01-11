@@ -25,8 +25,6 @@ export class HtmlDocumentView {
         return this.previewUri;
     }
 
-
-
     private getHTMLUri(uri: Uri) {
         return uri.with({ scheme: 'html', path: uri.path + '.rendered', query: uri.toString() });
     }
@@ -34,16 +32,23 @@ export class HtmlDocumentView {
     private registerEvents() {
         workspace.onDidSaveTextDocument(document => {
             if (this.isHTMLFile(document)) {
-                const uri = this.getHTMLUri(document.uri);
-                this.provider.update(uri);
+                workspace.textDocuments.forEach(document => {
+                    if (document.uri.scheme === 'html') {
+                        // update all generated md documents
+                        this.provider.update(document.uri);
+                    }
+                });
             }
         });
 
         workspace.onDidChangeTextDocument(event => {
             if (this.isHTMLFile(event.document)) {
-                const uri = this.getHTMLUri(event.document.uri);
-                this.provider.update(uri);
-
+                workspace.textDocuments.forEach(document => {
+                    if (document.uri.scheme === 'html') {
+                        // update all generated md documents
+                        this.provider.update(document.uri);
+                    }
+                });
             }
         });
 
