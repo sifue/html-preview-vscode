@@ -161,6 +161,7 @@ class HtmlDocumentContentProvider implements TextDocumentContentProvider {
 
     public preview(): string {
         return this.createLocalSource("header_fix.css", SourceType.STYLE) +
+            this.createLocalSource("custom_updater.js", SourceType.SCRIPT) +
             this.fixLinks();
     }
 }

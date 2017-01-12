@@ -1,8 +1,8 @@
 {
     "name": "UjZW2R7M",
     "displayName": "UjZW2R7M",
-    "description": "A HTML previewer with some fix",
-    "version": "0.1.1",
+    "description": "A HTML previewer with some fix (Delete MathJax)",
+    "version": "0.1.2",
     "publisher": "sifue",
     "author": "sifue",
     "license": "MIT",
