@@ -37,10 +37,20 @@ export class HtmlDocumentView {
             }
         });
 
+
+        let isRunning = false;
         workspace.onDidChangeTextDocument(event => {
             if (this.isHTMLFile(event.document)) {
                 const uri = this.getHTMLUri(event.document.uri);
-                this.provider.update(uri);
+                const p = this.provider;
+                let updater = function() {
+                    p.update(uri); 
+                    isRunning = false;
+                };
+                if (!isRunning) {
+                  isRunning = true;
+                  setTimeout(updater, 3000); // Buffer 3 seconds for update
+                }
             }
         });
 
