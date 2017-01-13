@@ -8,6 +8,6 @@ The extension can be activated in two ways
 * Open Preview to the Side - `ctrl+k h` or `cmd+k h`
 
 # Fix
-- Delete MathJax global variable befor update.
+- Delete MathJax global variable before update.
 - Update with 3 seconds buffering.
 
