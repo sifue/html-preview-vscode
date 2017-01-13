@@ -7,3 +7,7 @@ The extension can be activated in two ways
 * Toggle Preview - `ctrl+shift+h` or `cmd+shift+h`
 * Open Preview to the Side - `ctrl+k h` or `cmd+k h`
 
+# Fix
+- Delete MathJax global variable befor update.
+- Update with 3 seconds buffering.
+
